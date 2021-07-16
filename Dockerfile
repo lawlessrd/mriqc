@@ -121,6 +121,9 @@ RUN conda install -y python=3.7.1 \
                      setuptools>=40.0.0 \
                      traits=4.6.0 \
                      pip=19.1 \
+                     pdfgen \
+                     xvfbwrapper \
+                     pyppeteer==0.0.25 \
                      zlib; sync && \
     chmod -R a+rX /usr/local/miniconda; sync && \
     chmod +x /usr/local/miniconda/bin/*; sync && \
@@ -182,8 +185,8 @@ RUN apt-get update && \
       fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 
 #Install pyppeteer and pdfgen
-RUN pip install --no-cache-dir pdfgen && \
-    pip install --no-cache-dir -Iv pyppeteer==0.0.25
+#RUN pip install --no-cache-dir pdfgen && \
+#    pip install --no-cache-dir -Iv pyppeteer==0.0.25
 
 #Copy xnatwrapper
 COPY xnatwrapper /opt/xnatwrapper

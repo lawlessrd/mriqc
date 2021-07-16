@@ -1,3 +1,5 @@
+# docker build --build-arg VERSION=0.16.1 -f baxter.Dockerfile .
+
 # Use Ubuntu 16.04 LTS
 FROM ubuntu:xenial-20200114
 
@@ -138,20 +140,22 @@ RUN python -c "from matplotlib import font_manager" && \
 
 
 # Install wkhtmltopdf with Qt patch
-RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && \
-    tar xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && \
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz && \
+    tar xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz && \
     mv wkhtmltox/bin/wkhtmlto* /usr/bin/ && \
-    rm -rf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+    rm -rf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
 
+# Generate machine ID
+RUN dbus-uuidgen > /etc/machine-id
 
-#Install pdfkit and xvfbwrapper, generate machine ID
+# Install pdfkit and xvfbwrapper, 
 RUN pip install --no-cache-dir pdfkit && \
-    pip install --no-cache-dir xvfbwrapper && \
-    dbus-uuidgen > /etc/machine-id
+    pip install --no-cache-dir xvfbwrapper
 
-#Copy xnatwrapper
+# Copy xnatwrapper
 COPY xnatwrapper /opt/xnatwrapper
 
+    
 # Installing dev requirements (packages that are not in pypi)
 WORKDIR /src/
 
@@ -186,8 +190,6 @@ WORKDIR /tmp/
 
 # Run mriqc by default
 ENTRYPOINT ["/opt/xnatwrapper/run_mriqc.sh"]
-
-
 
 ARG BUILD_DATE
 ARG VCS_REF

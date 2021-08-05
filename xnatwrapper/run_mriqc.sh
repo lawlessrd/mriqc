@@ -23,7 +23,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 #Run MRIQC
-mriqc --no-sub -v ${bidsdir} ${outdir} ${level} 
+mriqc --no-sub ${bidsdir} ${outdir} ${level} 
 
 #Convert outputs
 cd ${outdir}

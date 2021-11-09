@@ -87,7 +87,7 @@ RUN apt-get update && \
                     xvfb \
                     fsl-core=5.0.9-5~nd16.04+1 \
                     fsl-mni152-templates \
-                    wget && \
+                    wget \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \

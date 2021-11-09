@@ -85,7 +85,7 @@ RUN apt-get update && \
                     tcsh \
                     xfonts-base \
                     xvfb \
-                    fsl-core=5.0.9-5~nd16.04+1 \
+                    fsl-core \
                     fsl-mni152-templates \
                     wget \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \

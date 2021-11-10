@@ -19,6 +19,7 @@ RUN apt-get update && \
                     build-essential \
                     bzip2 \
                     ca-certificates \
+                    cmake \
                     curl \
                     cython3 \
                     ed \

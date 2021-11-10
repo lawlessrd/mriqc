@@ -168,7 +168,7 @@ RUN conda install -y -c conda-forge -c anaconda \
                      graphviz \
                      libxml2 \
                      libxslt \
-                     matplotlib=3.2.0 \
+                     matplotlib=3.3.4 \
                      mkl \
                      mkl-service \
                      nodejs \

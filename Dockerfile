@@ -76,7 +76,7 @@ ENV PATH=$ANTSPATH:$PATH
 
 # Installing AFNI (version 17_3_03 archived on OSF)
 RUN mkdir -p /opt/afni && \
-    curl -o --insecure afni.tar.gz -sSLO "https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/5a0dd9a7b83f69027512a12b" && \
+    curl -k -o afni.tar.gz -sSLO "https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/5a0dd9a7b83f69027512a12b" && \
     tar zxv -C /opt/afni --strip-components=1 -f afni.tar.gz && \
     rm -rf afni.tar.gz
 ENV PATH=/opt/afni:$PATH \

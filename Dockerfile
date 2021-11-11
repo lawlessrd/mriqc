@@ -19,6 +19,7 @@ RUN apt-get update && \
                     build-essential \
                     bzip2 \
                     ca-certificates \
+                    cmake \
                     curl \
                     cython3 \
                     ed \
@@ -124,7 +125,7 @@ RUN conda install -y python=3.7.1 \
                      zlib; sync && \
     chmod -R a+rX /usr/local/miniconda; sync && \
     chmod +x /usr/local/miniconda/bin/*; sync && \
-    conda build purge-all; sync && \
+    conda-build purge-all; sync && \
     conda clean -tipsy && sync
 
 # Unless otherwise specified each process should only use one thread - nipype
@@ -139,11 +140,14 @@ RUN python -c "from matplotlib import font_manager" && \
 ### Additions by Dylan Lawless for VUIIS
 
 #Install fpdf, generate machine ID
-RUN pip install --no-cache-dir fpdf && \
+RUN pip install --no-cache-dir fpdf xvfbwrapper && \
     dbus-uuidgen > /etc/machine-id
 
 #Copy xnatwrapper
 COPY xnatwrapper /opt/xnatwrapper
+
+#Install cmake
+
 
 ### End
 

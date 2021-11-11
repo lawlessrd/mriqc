@@ -6,7 +6,7 @@ singularity run \
 --home $(pwd -P) \
 --bind $(pwd -P)/BIDS/Nifti:/data \
 --bind $(pwd -P)/OUTPUTS:/out \
-mriqc_vuiis.simg \
+mriqc_v1.simg \
 --bidsdir $(pwd -P)/BIDS/Nifti \
 --outdir $(pwd -P)/OUTPUTS \
---label_info "$project $subject $session $scan"
+--label_info "project subject session scan"

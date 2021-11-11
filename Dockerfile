@@ -125,7 +125,7 @@ RUN conda install -y python=3.7.1 \
                      zlib; sync && \
     chmod -R a+rX /usr/local/miniconda; sync && \
     chmod +x /usr/local/miniconda/bin/*; sync && \
-    conda build purge-all; sync && \
+    conda-build purge-all; sync && \
     conda clean -tipsy && sync
 
 # Unless otherwise specified each process should only use one thread - nipype
@@ -145,6 +145,9 @@ RUN pip install --no-cache-dir fpdf xvfbwrapper && \
 
 #Copy xnatwrapper
 COPY xnatwrapper /opt/xnatwrapper
+
+#Install cmake
+
 
 ### End
 

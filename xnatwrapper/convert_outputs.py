@@ -30,10 +30,13 @@ pdf.ln(8)
 
 # Write xnat specific project info to header
 pdf.set_font('Times','',14.0)
-label_info = os.environ["label_info"]
+project = os.environ["project"]
+subject = os.environ["subject"]
+session = os.environ["session"]
+scan = os.environ["scan"]
 if label_info:
 	label_info = label_info.split(' ')
-	pdf.cell(page_width,0.0,'XNAT Project: ' + label_info[0] + ' Subject: ' + label_info[1] + ' Session: ' +  label_info[2] + ' Scan: ' +  label_info[3],align='C')
+	pdf.cell(page_width,0.0,'XNAT Project: ' + project + ' Subject: ' + subject + ' Session: ' +  session + ' Scan: ' +  scan,align='C')
 else:
 	pdf.cell(page_width,0.0,'No XNAT Label Provided',align='C')
 pdf.ln(8)

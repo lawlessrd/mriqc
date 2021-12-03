@@ -146,8 +146,6 @@ RUN pip install --no-cache-dir fpdf xvfbwrapper && \
 #Copy xnatwrapper
 COPY xnatwrapper /opt/xnatwrapper
 
-#Install cmake
-
 
 ### End
 

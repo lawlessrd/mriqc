@@ -9,7 +9,10 @@
 export bidsdir=NO_BIDS
 export outdir=NO_OUTDIR
 export level=participant
-export wrkdir=NO_WRKDIR
+export project=NO_PROJECT
+export subject=NO_SUBJECT
+export session=NO_SESSION
+export scan=NO_SCAN
 
 # Parse options
 while [[ $# -gt 0 ]]; do
@@ -19,17 +22,21 @@ while [[ $# -gt 0 ]]; do
       export bidsdir="${2}"; shift; shift ;;
     --outdir)
       export outdir="${2}"; shift; shift ;;
-    --wrkdir)
-      export wrkdir="${2}"; shift; shift ;;
-    --label_info)
-      export label_info="${2}"; shift; shift ;;
+    --project)
+      export project="${2}"; shift; shift ;;
+    --subject)
+      export subject="${2}"; shift; shift ;;
+    --session)
+      export session="${2}"; shift; shift ;;
+    --scan)
+      export scan="${2}"; shift; shift ;;
     *)
       echo Unknown input "${1}"; shift ;;
   esac
 done
 
 #Run MRIQC
-mriqc --no-sub -w ${wrkdir} ${bidsdir} ${outdir} ${level} 
+mriqc --no-sub ${bidsdir} ${outdir} ${level} 
 
 #Convert outputs
 cd ${outdir}

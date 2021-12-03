@@ -9,4 +9,7 @@ singularity run \
 mriqc_v1.simg \
 --bidsdir $(pwd -P)/BIDS/Nifti \
 --outdir $(pwd -P)/OUTPUTS \
---label_info "project subject session scan"
+--project "project" \
+--subject "subject" \
+--session "session" \
+--scan "scan"

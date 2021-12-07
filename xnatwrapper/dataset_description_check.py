@@ -17,7 +17,7 @@ def dataset_description_file(in_dir, project, subject):
     dataset_description['Name'] = project
     dataset_description['Subject'] = subject
     dataset_description['Author'] = "No Author defined on XNAT"
-    with open(os.path.join(in_dir, 'dataset_description.json'), 'w+') as f:
+    with open(os.path.join(in_dir, 'dataset_description.json'), 'w') as f:
         json.dump(dataset_description, f, indent=2)
 
 def main(argv):

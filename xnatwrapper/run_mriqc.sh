@@ -35,7 +35,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-dataset_description_check.py -i ${bidsdir} -p ${project} -s ${subject}
+/opt/xnatwrapper/dataset_description_check.py -i ${bidsdir} -p ${project} -s ${subject}
 
 #Run MRIQC
 mriqc --no-sub ${bidsdir} ${outdir} ${level} 

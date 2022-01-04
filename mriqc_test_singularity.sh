@@ -6,7 +6,7 @@ singularity run \
 --home $(pwd -P) \
 --bind $(pwd -P)/BIDS/Nifti:/data \
 --bind $(pwd -P)/OUTPUTS:/out \
-mriqc_v1.simg \
+mriqc_v2.simg \
 --bidsdir $(pwd -P)/BIDS/Nifti \
 --outdir $(pwd -P)/OUTPUTS \
 --project "project" \

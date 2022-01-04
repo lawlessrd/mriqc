@@ -35,7 +35,6 @@ subject = os.environ["subject"]
 session = os.environ["session"]
 scan = os.environ["scan"]
 if project:
-	label_info = label_info.split(' ')
 	pdf.cell(page_width,0.0,'XNAT Project: ' + project + ' Subject: ' + subject + ' Session: ' +  session + ' Scan: ' +  scan,align='C')
 else:
 	pdf.cell(page_width,0.0,'No XNAT Label Provided',align='C')
